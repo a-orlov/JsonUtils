@@ -7,5 +7,6 @@ JsonUtils/JsonUtils.csproj.user
 JsonUtils.v11.suo
 JsonUtils.v12.suo
 Deploy/
+.vs/
 JsonCSharpClassGeneratorLib/bin/
 JsonCSharpClassGeneratorLib/obj/
