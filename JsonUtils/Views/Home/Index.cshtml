@@ -37,7 +37,7 @@
 </div>
 }
 
-<link rel="stylesheet" type="text/css" href="/Content/jsoneditor/jsoneditor-min.css">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jsoneditor/jsoneditor-min.css")">
 
 <div class="row">
     <div class="col-md-12">
@@ -49,7 +49,7 @@
             </p>
         </div>
 
-        <form class="form form-horizontal" action="/" method="post">
+        <form class="form form-horizontal" action="@Url.Action("Index")" method="post">
 
         <h1 class="hide-h1">Generate classes from JSON - Json to C#, Json to VB.net, and JSON Viewer</h1>
         <div class="control-group">
@@ -198,10 +198,10 @@
     </div>
 }
 
-<script type="text/javascript" src="/Content/SunLight/sunlight-min.js"></script>
-<script type="text/javascript" src="/Content/SunLight/sunlight-all-min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/SunLight/sunlight-min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/SunLight/sunlight-all-min.js")"></script>
 
-<script type="text/javascript" src="/Content/jsoneditor/jsoneditor-min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/jsoneditor/jsoneditor-min.js")"></script>
 
 <script type="text/javascript">
 
