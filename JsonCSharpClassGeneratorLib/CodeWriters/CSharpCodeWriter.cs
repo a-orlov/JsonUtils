@@ -30,7 +30,7 @@ namespace Xamasoft.JsonClassGenerator.CodeWriters
             switch (type.Type)
             {
                 case JsonTypeEnum.Anything: return "object";
-                case JsonTypeEnum.Array: return arraysAsLists ? "IList<" + GetTypeName(type.InternalType, config) + ">" : GetTypeName(type.InternalType, config) + "[]";
+                case JsonTypeEnum.Array: return arraysAsLists ? "List<" + GetTypeName(type.InternalType, config) + ">" : GetTypeName(type.InternalType, config) + "[]";
                 case JsonTypeEnum.Dictionary: return "Dictionary<string, " + GetTypeName(type.InternalType, config) + ">";
                 case JsonTypeEnum.Boolean: return "bool";
                 case JsonTypeEnum.Float: return "double";
@@ -194,7 +194,7 @@ namespace Xamasoft.JsonClassGenerator.CodeWriters
         {
             foreach (var field in type.Fields)
             {
-                if (config.UsePascalCase || config.ExamplesInDocumentation) sw.WriteLine();
+                if (config.PropertyAttribute != "None" || config.ExamplesInDocumentation) sw.WriteLine();
 
                 if (config.ExamplesInDocumentation)
                 {
@@ -204,16 +204,11 @@ namespace Xamasoft.JsonClassGenerator.CodeWriters
                 }
 
                 if (config.UsePascalCase || config.PropertyAttribute != "None")
-                {
-                    if (config.UsePascalCase && config.PropertyAttribute == "None")
-                        sw.WriteLine(prefix + "[JsonProperty(\"{0}\")]", field.JsonMemberName);
-                    else
-                    {
-                        if (config.PropertyAttribute == "DataMember")                        
-                            sw.WriteLine(prefix + "[" + config.PropertyAttribute + "(Name=\"{0}\")]", field.JsonMemberName);
-                        else if (config.PropertyAttribute == "JsonProperty")
-                            sw.WriteLine(prefix + "[" + config.PropertyAttribute + "(\"{0}\")]", field.JsonMemberName);
-                    }
+                { 
+                    if (config.PropertyAttribute == "DataMember")                        
+                        sw.WriteLine(prefix + "[" + config.PropertyAttribute + "(Name=\"{0}\")]", field.JsonMemberName);
+                    else if (config.PropertyAttribute == "JsonProperty")
+                        sw.WriteLine(prefix + "[" + config.PropertyAttribute + "(\"{0}\")]", field.JsonMemberName); 
                 }
 
                 if (config.UseProperties)
@@ -227,12 +222,8 @@ namespace Xamasoft.JsonClassGenerator.CodeWriters
             }
 
         }
-
-
-
-
-
-
+     
+        
 
         #region Code for (obsolete) explicit deserialization
         private void WriteClassWithPropertiesExplicitDeserialization(TextWriter sw, JsonType type, string prefix)

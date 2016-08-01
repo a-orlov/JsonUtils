@@ -9,11 +9,11 @@
 
     <title>JSON Utils: Generate C#, VB.Net, SQL TAble and Java from JSON</title>
     
-    <link href="/Content/bootstrap.min.css" rel="stylesheet">
-    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap-theme.min.css")" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="/Content/site.css?v2" rel="stylesheet">
-    <link href="/Content/SunLight/themes/sunlight.default.css" type="text/css" rel="stylesheet" />
+    <link href="@Url.Content("~//Content/site.css?v2")" rel="stylesheet">
+    <link href="@Url.Content("~//Content/SunLight/themes/sunlight.default.css")" type="text/css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -55,7 +55,7 @@
                         <a href="/">Generate Classes</a>
                     </li>
                     <li>
-                        <a href="/Home/Bookmarklet">Bookmarklet</a>
+                        <a href="@Url.Action("Bookmarklet", "Home")">Bookmarklet</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
 
     @RenderSection("scripts", required: false)
 </body>
